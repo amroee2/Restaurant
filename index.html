@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indoor Map</title>
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- Include Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Define a CSS style for the map container -->
+    <style>
+        /* Set the size of the map container */
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Create a div to hold the map -->
+    <div id="map"></div>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([37.0902, -95.7129], 17); // Centered on the building
+
+        // Add a base layer (you can use other map providers or custom tilesets)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add room markers (you can add more room markers with actual data)
+        L.marker([37.0903, -95.7128]).addTo(map).bindPopup('Room 101');
+        L.marker([37.0904, -95.7127]).addTo(map).bindPopup('Room 102');
+        // Add more room markers here...
+
+        // You can customize the map, add wayfinding, and integrate with indoor positioning as needed.
+    </script>
+</body>
+</html>
